@@ -1,0 +1,50 @@
+<html ng-app="ExitMemoComments">
+<head>
+    <title>Exit Memo Comments</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/spacelab/bootstrap.min.css">
+    <link href="~/css/site.css" rel="stylesheet" />
+    <base href="/" />
+</head>
+<body ng-controller="AccountController as account">
+    <div class="container">
+        <h1>Exit Memo Comments</h1>
+        <div>
+            <span><a ui-sref="home">Search Comments</a> | </span>
+            <span ng-show="account.isLoggedIn()"><a ui-sref="add">Add Comments</a> | </span>
+            <a ui-sref="login" ng-show="!account.isLoggedIn()">Login</a>
+            <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
+        </div>
+        <div ng-show="account.isLoggedIn()">
+            Your logged in as {{account.getUserName()}}
+        </div>
+        <hr />
+
+        <ui-view></ui-view>
+    </div>
+
+    <!-- Library Files -->
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-touch/angular-touch.js"></script>
+    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+      
+
+    <!-- App Files-->
+    <script src="/ngapp/app.js"></script>
+    <script src="/ngapp/controllers/controllers.js"></script>
+    <script src="/ngapp/services/services.js"></script>
+
+    <!-- Security -->
+    <script src="/ngapp/controllers/accountcontroller.js"></script>
+    <script src="/ngapp/services/accountservice.js"></script>
+
+    <!--Other-->
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ 
+
+
+</body>
+</html>
